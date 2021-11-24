@@ -19,6 +19,10 @@ module.exports = function (app, passport, db) {
         })
     });
 
+    // INTERACTIVE MAP ========================
+    app.get('/map', function (req, res) {
+        res.render('map.ejs');
+    });
 
 
     // LOGOUT ==============================
