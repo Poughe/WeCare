@@ -9,29 +9,29 @@ module.exports = function (app, passport, db) {
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function (req, res) {
-        console.log(req)
-        db.collection('messages').find().toArray((err, result) => {
-            if (err) return console.log(err)
-            res.render('profile.ejs', {
-                user: req.user,
-                messages: result
+        let user = req.user
+        db.collection('posts').find({ postedBy: user.local.username }).toArray((err, result) => {
+            db.collection('comments').find().toArray((err, mainResult) => {
+
+                if (err) return console.log(err)
+                res.render('profile.ejs', {
+                    user: req.user,
+                    posts: result,
+                    comments: mainResult
+                })
             })
         })
     });
 
     // INTERACTIVE MAP ========================
-    app.get('/map', function (req, res) {
-        res.render('map.ejs');
-    });
+    app.get('/map', (req, res) => {
+        res.render('map.ejs')
+    })
 
+    app.get('/add', (req, res) => {
+        res.render('add.ejs')
+    })
 
-    // LOGOUT ==============================
-    app.get('/logout', function (req, res) {
-        req.logout();
-        res.redirect('/');
-    });
-
-    // message board routes ===============================================================
 
     app.post('/messages', (req, res) => {
         db.collection('messages').save({ name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown: 0 /*, postedBy: req.user._id*/ }, (err, result) => {
@@ -41,59 +41,12 @@ module.exports = function (app, passport, db) {
         })
     })
 
-    // app.put('/upVote', (req, res) => {
-    //     db.collection('messages')
-    //         .findOneAndUpdate({ name: req.body.name, msg: req.body.msg }, {
-    //             $set: {
-    //                 thumbUp: req.body.thumbUp + 1,
-    //                 // thumbDown: req.body.thumbDown + 1
-    //             }
-    //         }, {
-    //             sort: { _id: -1 },
-    //             upsert: true
-    //         }, (err, result) => {
-    //             if (err) return res.send(err)
-    //             res.send(result)
-    //         })
-    // })
 
-    // app.put('/downVote', (req, res) => {
-    //     db.collection('messages')
-    //         .findOneAndUpdate({ name: req.body.name, msg: req.body.msg }, {
-    //             $set: {
-    //                 thumbUp: req.body.thumbDown - 1,
-    //                 // thumbDown: req.body.thumbDown + 1
-    //             }
-    //         }, {
-    //             sort: { _id: -1 },
-    //             upsert: true
-    //         }, (err, result) => {
-    //             if (err) return res.send(err)
-    //             res.send(result)
-    //         })
-    // })
-
-    // app.put('/messages', (req, res) => {
-    //   db.collection('messages')
-    //     .findOneAndUpdate({ name: req.body.name, msg: req.body.msg }, {
-    //       $set: {
-    //         thumbUp: req.body.thumbUp + 1
-    //       }
-    //     }, {
-    //       sort: { _id: -1 },
-    //       upsert: true
-    //     }, (err, result) => {
-    //       if (err) return res.send(err)
-    //       res.send(result)
-    //     })
-    // })
-
-    app.delete('/messages', (req, res) => {
-        db.collection('messages').findOneAndDelete({ name: req.body.name, msg: req.body.msg }, (err, result) => {
-            if (err) return res.send(500, err)
-            res.send('Message deleted!')
-        })
-    })
+    // LOGOUT ==============================
+    app.get('/logout', function (req, res) {
+        req.logout();
+        res.redirect('/');
+    });
 
     // =============================================================================
     // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -144,9 +97,6 @@ module.exports = function (app, passport, db) {
     });
 
 };
-
-
-
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {

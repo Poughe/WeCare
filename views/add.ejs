@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="Your description goes here">
+    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Add Service</title>
+		<!--MapBox-->
+		<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <!--bootstrap framework-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+		<!-- external CSS link -->
+		<!--<link rel="stylesheet" href="css/normalize.css">-->
+		<!--<link rel="stylesheet" href="css/reset.css">-->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body class="bg-dark">
+        <div class="container my-3">
+            <h1 class="display-4 text-center text-light">
+                Add Service
+            </h1>
+            
+			<form id="service-form" class="mb-4">
+				<div class="form-group">
+				  <label class="text-light" for="service-id">Enter Name</label>
+				  <input type="text" id="service-id" class="form-control" />
+				</div>
+				<div class="form-group">
+				  <label class="text-light" for="service-address">Enter Address</label>
+				  <input type="text" id="service-address" class="form-control" />
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a href="/map" class="btn btn-secondary">Back</a>
+			</form>
+			
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/c0e668a8ad.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/add.js"></script>
+	</body>
+</html>
