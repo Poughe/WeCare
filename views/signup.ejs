@@ -44,36 +44,62 @@
 		</nav>
 
         <!--SignUp Template-->
-        <div class="container">
-            <div class="col-sm-6 col-sm-offset-3">
-            
-                <h1><span class="fa fa-sign-in"></span> Signup</h1>
-            
-                <% if (message.length > 0) { %>
-                    <div class="alert alert-danger"><%= message %></div>
-                <% } %>
-            
-                <!-- LOGIN FORM -->
-                <form action="/signup" method="post">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="form-control" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-            
-                    <button type="submit" class="btn btn-warning btn-lg">Signup</button>
-                </form>
-            
-                <hr>
-            
-                <p>Already have an account? <a href="/login">Login</a></p>
-                <p>Or go <a href="/">home</a>.</p>
-            
-            </div>
-            </div>
+		<div class="d-flex justify-content-center">
+			<div>
+	
+				<h1><span class="fa fa-sign-in"></span> Signup</h1>
+	
+				<% if (message.length> 0) { %>
+					<div class="alert alert-danger">
+						<%= message %>
+					</div>
+					<% } %>
+	
+						<!-- LOGIN FORM -->
+						<form action="/signup" method="post">
+							<div class="form-group">
+								<label>Email</label>
+								<input type="text" class="form-control" name="email" placeholder="Email">
+							</div>
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" class="form-control" name="password" placeholder="Password">
+							</div>
+							<h5 class="mb-3 pt-3">Are you seeking to become a Mentor or Mentee?</h5>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="title" id="inlineRadio1" value="Mentor">
+								<label class="form-check-label" for="inlineRadio1">Mentor</label>
+							  </div>
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="title" id="inlineRadio2" value="Mentee">
+								<label class="form-check-label" for="inlineRadio2">Mentee</label>
+							  </div>
+							<h5 class="mb-3 pt-3">What are your current interest(s) / profession?</h5>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="programming" id="inlineCheckbox1" value="programming">
+								<label class="form-check-label" for="inlineCheckbox1">Programming</label>
+							  </div>
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="cooking" id="inlineCheckbox2" value="cooking">
+								<label class="form-check-label" for="inlineCheckbox2">Cooking</label>
+							  </div>
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="nursing" id="inlineCheckbox3" value="nursing">
+								<label class="form-check-label" for="inlineCheckbox3">Nursing</label>
+							  </div>
+							
+							<div class="d-flex justify-content-center m-3">
+								<button type="submit" class="btn btn-warning btn-lg">Signup</button>
+							</div>
+						</form>
+	
+						<hr>
+	
+						<p>Already have an account? <a href="/login" class="text-primary">Login</a></p>
+						<p>Or go <a href="/" class="text-primary">Home</a>.</p>
+	
+			</div>
+		</div>
 	
 		
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

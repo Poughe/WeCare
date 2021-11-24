@@ -23,7 +23,10 @@
             <h1 class="display-4 text-center text-light">
                 <i class="fas fa-map-marked mr-4 text-light mx-2"></i>Community Map
             </h1>
+            <% if (user.local.title === 'Mentor') { %>
                 <a href="/add" class="btn btn-success mb-4">Add Service</a>
+            <% } %>
+                
             <div id="map"></div>
         </div>
 

@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoicG91Z2hlIiwiYSI6ImNrd2M5YnJsZzQ2djUzMWx0d2VsYnBseGoifQ.Qe59zNFsnRGc8Gxd58q7pQ';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
+    style: 'mapbox://styles/mapbox/light-v10',
     center: [-71.057083, 42.361145],
     zoom: 9
 
@@ -9,6 +9,37 @@ const map = new mapboxgl.Map({
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
+
+/* 
+Add an event listener that runs
+  when a user clicks on the map element.
+*/
+map.on('click', (event) => {
+    // If the user clicked on one of your markers, get its information.
+    const features = map.queryRenderedFeatures(event.point, {
+        layers: ['points'] // replace with your layer name
+    });
+    if (!features.length) {
+        return;
+    }
+    const feature = features[0];
+
+    /* 
+    Create a popup, specify its options 
+    and properties, and add it to the map.
+  */
+    const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+            `<h3>${feature.properties.serviceId}</h3>
+            <p>Hello</p>
+            
+            
+            `,
+
+        )
+        .addTo(map);
+});
 
 
 // Fetch services from API

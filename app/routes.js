@@ -25,7 +25,7 @@ module.exports = function (app, passport, db) {
 
     // INTERACTIVE MAP ========================
     app.get('/map', (req, res) => {
-        res.render('map.ejs')
+        res.render('map.ejs', { user: req.user })
     })
 
     app.get('/add', (req, res) => {
