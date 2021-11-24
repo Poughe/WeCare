@@ -7,18 +7,7 @@ const MongoClient = require('mongodb').MongoClient
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
-//required for video call
-const { v4: uuidv4 } = require("uuid");
-const server = require("http").Server(app);
-const io = require("socket.io")(server, {
-    cors: {
-        origin: '*'
-    }
-});
-const { ExpressPeerServer } = require("peer");
-const peerServer = ExpressPeerServer(server, {
-    debug: true,
-});
+
 
 //logger 
 var morgan = require('morgan');
@@ -61,24 +50,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
-
-//required for video call ======================================================================
-io.on("connection", (socket) => {
-    socket.on("join-room", (roomId, userId, userName) => {
-        socket.join(roomId);
-        socket.to(roomId).broadcast.emit("user-connected", userId);
-        socket.on("message", (message) => {
-            io.to(roomId).emit("createMessage", message, userName);
-        });
-    });
-});
-
-app.get("/room", (req, res) => {
-    res.redirect(`/roomid/${uuidv4()}`);
-});
-app.get("/roomid/:room", (req, res) => {
-    res.render('room', { roomId: req.params.room });
-});
 
 
 // launch ======================================================================
