@@ -11,6 +11,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 // load env vars
 // dotenv.config({ path: './config/config.env' })
 
@@ -34,9 +35,10 @@ mongoose.connect(configDB.url, (err, database) => {
 // app.use(morgan('dev')); // log every request to the console
 app.use(cors());
 app.use(cookieParser()); // read cookies (needed for auth)
+app.use(express.json());
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
 app.use('/api/v1/services', require('./routes/services'))

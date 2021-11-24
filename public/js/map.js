@@ -11,7 +11,7 @@ const map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 
 
-// Fetch stores from API
+// Fetch services from API
 async function getServices() {
     const res = await fetch('/api/v1/services');
     const data = await res.json();
@@ -27,7 +27,7 @@ async function getServices() {
                 ]
             },
             properties: {
-                storeId: service.serviceId,
+                serviceId: service.serviceId,
                 icon: 'shop'
             }
         };
@@ -36,7 +36,7 @@ async function getServices() {
     loadMap(services);
 }
 
-// Load map with stores
+// Load map with services
 function loadMap(services) {
     map.on('load', function () {
         map.addLayer({
