@@ -15,7 +15,7 @@
 		<!-- external CSS link -->
 		<!--<link rel="stylesheet" href="css/normalize.css">-->
 		<!--<link rel="stylesheet" href="css/reset.css">-->
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/login.css">
 	</head>
 	<body>
 		<!--NavBar-->
@@ -32,6 +32,9 @@
 						<li class="nav-item">
 							<a href="/" class="nav-link">Home</a>
 						</li>
+						<li class="nav-item">
+							<a href="/login" class="nav-link">Login</a>
+						</li>
 						<!-- <li class="nav-item">
 							<a href="#menuTwo" class="nav-link">Menu Item 2</a>
 						</li>
@@ -43,26 +46,43 @@
 			</div>	
 		</nav>
 
-        <!--SignUp Template-->
-		<div class="d-flex justify-content-center">
-			<div>
-	
-				<h1><span class="fa fa-sign-in"></span> Signup</h1>
-	
-				<% if (message.length> 0) { %>
-					<div class="alert alert-danger">
-						<%= message %>
-					</div>
+		        <!--Login Template-->
+				<div class="container">
+					<% if (message.length> 0) { %>
+						<div class="alert alert-danger">
+							<%= message %>
+						</div>
 					<% } %>
-	
-						<!-- LOGIN FORM -->
-						<form action="/signup" method="post">
+		
+					<div class="row w-100 d-flex justify-content-center align-items-center main_div">
+						<div class="col-12 col-lg-6 col-md-8 col-xxl-5">
+							<div class="card py-3 px-2">
+								<p class="text-center my-3 text-capitalize"><span>connect with us</span></p>						
+								<div class="row mx-auto">
+									<div class="col-4">
+										<a href="https://twitter.com/PoughErnest"><i class="fab fa-twitter"></i></a>
+									</div>
+									<div class="col-4">
+										<a href="https://github.com/Poughe"><i class="fab fa-github"></i></a>
+									</div>
+									<div class="col-4">
+										<a href="https://www.linkedin.com/in/ernestpough/"><i class="fab fa-linkedin"></i></a>
+									</div>
+								</div>
+		
+								<div class="division">
+									<div class="row">
+										<div class="col-6 mx-auto mb-4">
+											<span class="main-heading">Sign-Up Form</span>
+										</div>
+									</div>
+										
+									<!-- SIGNUP FORM -->
+						<form class="myform" action="/signup" method="post">
 							<div class="form-group">
-								<label>Email</label>
-								<input type="text" class="form-control" name="email" placeholder="Email">
+								<input type="text" class="form-control" name="email" placeholder="Name@example.com">
 							</div>
 							<div class="form-group">
-								<label>Password</label>
 								<input type="password" class="form-control" name="password" placeholder="Password">
 							</div>
 							<h5 class="mb-3 pt-3">Are you seeking to become a Mentor or Mentee?</h5>
@@ -75,31 +95,38 @@
 								<label class="form-check-label" for="inlineRadio2">Mentee</label>
 							  </div>
 							<h5 class="mb-3 pt-3">What are your current interest(s) / profession?</h5>
+							<div class="mb-3 form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="Software Developer" id="inlineCheckbox1" value="Software Developer">
+								<label class="form-check-label" for="inlineCheckbox1">Software Developer</label>
+							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" name="programming" id="inlineCheckbox1" value="programming">
-								<label class="form-check-label" for="inlineCheckbox1">Programming</label>
-							  </div>
-							  <div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" name="cooking" id="inlineCheckbox2" value="cooking">
-								<label class="form-check-label" for="inlineCheckbox2">Cooking</label>
-							  </div>
-							  <div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" name="nursing" id="inlineCheckbox3" value="nursing">
-								<label class="form-check-label" for="inlineCheckbox3">Nursing</label>
-							  </div>
+								<input class="form-check-input" type="checkbox" name="Physician Assistant" id="inlineCheckbox2" value="Physician Assistant">
+								<label class="form-check-label" for="inlineCheckbox2">Physician Assistant</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="Nurse Practitioner" id="inlineCheckbox3" value="Nurse Practitioner">
+								<label class="form-check-label" for="inlineCheckbox3">Nurse Practitioner</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="Dentist" id="inlineCheckbox3" value="Dentist">
+								<label class="form-check-label" for="inlineCheckbox3">Dentist</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="Veterinarian" id="inlineCheckbox3" value="Veterinarian">
+								<label class="form-check-label" for="inlineCheckbox3">Veterinarian</label>
+							</div>
 							
 							<div class="d-flex justify-content-center m-3">
 								<button type="submit" class="btn btn-warning btn-lg">Signup</button>
 							</div>
 						</form>
-	
-						<hr>
-	
-						<p>Already have an account? <a href="/login" class="text-primary">Login</a></p>
-						<p>Or go <a href="/" class="text-primary">Home</a>.</p>
-	
-			</div>
-		</div>
+		
+								</div>
+		
+							</div>
+						</div>
+					</div>
+				</div>
 	
 		
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
