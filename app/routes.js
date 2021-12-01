@@ -22,9 +22,11 @@ module.exports = function (app, passport, db) {
             })
         })
     });
-
+    // app.get('/settings', (req, res) => {
+    //     res.render('settings.ejs')
+    // })
     // INTERACTIVE MAP ========================
-    app.get('/map', (req, res) => {
+    app.get('/map', isLoggedIn, (req, res) => {
         res.render('map.ejs', { user: req.user })
     })
 
