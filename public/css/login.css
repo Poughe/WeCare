@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #19123b;
+    background: repeating-linear-gradient(45deg,#90b81e, #2d97cb, #ff9d29);
 }
 
 .main_div {
@@ -15,9 +15,9 @@ body {
 
 .card{
     border: none;
-    border-top: 5px solid rgb(176, 106, 252);
-    background: #212042;
-    color: #57557a;
+    border-top: 5px solid black;
+    background: silver;
+    color: black;
 }
 
 p{
@@ -34,7 +34,7 @@ a{
     justify-content: center;
     align-items: center;
     border:none;
-    background: #2a284d;
+    background: silver;
     border-radius: 50%;
     transition: all 0.2s linear;
 }
@@ -98,7 +98,6 @@ a{
 }
 
 .btn-primary{
-    background: linear-gradient(135deg, rgba(175,106,252,1) 39%, rgba(116,17,255,1) 100% ) !important;
     border: none;
     border-radius: 50px;
 }

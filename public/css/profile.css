@@ -4,3 +4,15 @@
         height: 100%;
     }
 }
+
+.carousel-item{
+    height: 32rem;
+    background: white;
+    color: white;
+
+}
+
+.img {
+    opacity: 0.5; 
+}
+

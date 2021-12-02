@@ -22,6 +22,10 @@ const ServiceSchema = new mongoose.Schema({
             index: '2dsphere'
         }
     },
+    interests: {
+        type: [String],
+        required: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now

@@ -25,6 +25,18 @@ module.exports = function (app, passport, db) {
     // app.get('/settings', (req, res) => {
     //     res.render('settings.ejs')
     // })
+    // IMAGE UPLOADING
+    // app.post("/profile", upload.single("file-to-upload"), async (req, res) => {
+    //     try {
+    //         // Upload image to cloudinary
+    //         const result = await cloudinary.uploader.upload(req.file.path);
+    //         const objectURL = result.secure_url;
+    //         res.render("result.ejs", { count: hotDogCount, img: objectURL });
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // })
+
     // INTERACTIVE MAP ========================
     app.get('/map', isLoggedIn, (req, res) => {
         res.render('map.ejs', { user: req.user })
