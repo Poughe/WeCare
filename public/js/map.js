@@ -32,7 +32,8 @@ map.on('click', (event) => {
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
             `<h3>${feature.properties.serviceId}</h3>
-            <p>Hello</p>
+            <p>Ways to Contact:</p>
+            <p>Coming Soon</p>
             
             
             `,
