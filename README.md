@@ -33,4 +33,4 @@
 
 # Status of Project
 
-Platform will be ready to showcase December 2, 2021
+Currently hosting. 
