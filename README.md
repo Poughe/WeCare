@@ -33,4 +33,4 @@
 
 # Status of Project
 
-Currently hosting. 
+Currently hosting...expanding on tech stack
